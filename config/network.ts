@@ -10,14 +10,77 @@ export const api = async (
     body?: ApiRequestBody,
     headers?: Record<string, string>
 ): Promise<AxiosResponse<any>> => {
-    axios.defaults.baseURL = "http://192.168.0.29:8080";
-
+    axios.defaults.baseURL = "https://just-click.shop";
     const res = await axios({
         url,
         method,
         data: body,
         headers: headers
     });
+    return res;
+};
 
+export const apiCardList = async (
+    url: string,
+    method: Method,
+    body?: ApiRequestBody,
+    headers?: Record<string, string>
+): Promise<AxiosResponse<any>> => {
+    axios.defaults.baseURL = "https://just-click.shop";
+    const res = await axios({
+        url,
+        method,
+        data: body,
+        headers: headers
+    });
+    return res;
+}
+
+export const apiCard = async (
+    url: string,
+    method: Method,
+    body?: ApiRequestBody,
+    headers?: Record<string, string>
+): Promise<AxiosResponse<any>> => {
+    axios.defaults.baseURL = "https://just-click.shop";
+    const res = await axios({
+        url,
+        method,
+        data: body,
+        headers: headers
+    });
+    return res;
+}
+
+export const apiAccount = async (
+    url: string,
+    method: Method,
+    body?: ApiRequestBody,
+    headers?: Record<string, string>
+): Promise<AxiosResponse<any>> => {
+    axios.defaults.baseURL = "https://just-click.shop";
+    // axios.defaults.baseURL = "http://192.168.0.29:8080";
+    const res = await axios({
+        url,
+        method,
+        data: body,
+        headers: headers
+    });
+    return res;
+};
+
+export const apiPayment = async (
+    url: string,
+    method: Method,
+    body?: ApiRequestBody,
+    headers?: Record<string, string>
+): Promise<AxiosResponse<any>> => {
+    axios.defaults.baseURL = "https://just-click.shop";
+    const res = await axios({
+        url,
+        method,
+        data: body,
+        headers: headers
+    });
     return res;
 };

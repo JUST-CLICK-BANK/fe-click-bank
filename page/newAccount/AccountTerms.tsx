@@ -1,15 +1,33 @@
 import { Text,TouchableOpacity,Dimensions, Platform, SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
-import AccountType from './AccountType';
 
 type data = {
     accountStatus: string;
     token: string;
-    userName: string,
-    accountPassword: string
+    userName: string;
+    accountPassword: string;
+}
+
+interface SavingAccount {
+    interestRate: number | null;
+    term: number | null;
+    product: string | null;
+    sendAccount: string | null;
+}
+
+interface Transfer {
+    type: string | null;
+    amount: number | null;
+    transferDate: number | null;
+    account: string | null;
 }
 
 export default function AccountTerms( { route,navigation }: any ) {
     const { accountStatus, token, accountPassword }: data = route.params;
+    const savingAccountRequest: SavingAccount = route.params.savingAccountRequest;
+    const transferRequest: Transfer = route.params.transferRequest;
+    console.log(accountPassword)
+    console.log(savingAccountRequest);
+    console.log(transferRequest);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -24,7 +42,7 @@ export default function AccountTerms( { route,navigation }: any ) {
             </View>
             <TouchableOpacity 
                 style={styles.button} 
-                onPress={() => navigation.navigate('AccountComplete', { accountStatus, token, accountPassword })}
+                onPress={() => navigation.navigate('AccountComplete', { accountStatus, token, accountPassword, savingAccountRequest, transferRequest })}
             >
                 <Text style={styles.buttonText}>다음</Text>
             </TouchableOpacity>
@@ -36,7 +54,6 @@ export default function AccountTerms( { route,navigation }: any ) {
 const styles = StyleSheet.create({
     innerContainer: {
         flex: 1,
-       
         width: "100%",
         marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight,
         alignItems: 'center',
@@ -47,6 +64,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'white',
     },
     box: {
         width: 330,
